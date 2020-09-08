@@ -1,0 +1,45 @@
+<ion-list>
+  <ion-list-header *ngIf="header !== undefined">
+    {{ header }}
+  </ion-list-header>
+  <ion-item *ngIf="subHeader !== undefined || message !== undefined">
+    <ion-label class="ion-text-wrap">
+      <h3 *ngIf="subHeader !== undefined">
+        {{ subHeader }}
+      </h3>
+      <p *ngIf="message !== undefined">
+        {{ message }}
+      </p>
+    </ion-label>
+  </ion-item>
+  <ion-radio-group *ngIf="!multiple; else isMultiple" [value]="checkedValue" (ionChange)="onSelect($event.target)">
+    <ion-item *ngFor="let option of options" [ngClass]="option.cssClass">
+      <ion-label>
+        {{ option.text }}
+      </ion-label>
+      <ion-radio
+        [color]="color"
+        [value]="option.value"
+        [disabled]="option.disabled">
+      </ion-radio>
+    </ion-item>
+  </ion-radio-group>
+  <ng-template #isMultiple>
+    <ion-item *ngFor="let option of options" [ngClass]="option.cssClass">
+      <ion-label>
+        {{ option.text }}
+      </ion-label>
+      <ion-checkbox
+        [color]="color"
+        [(ngModel)]="option.checked"
+        [disabled]="option.disabled">
+      </ion-checkbox>
+    </ion-item>
+    <ion-item detail="false" button (click)="dismissPopover('completed')">
+      {{ okText }}
+    </ion-item>
+    <ion-item lines="none" detail="false" button (click)="cancelSelection()">
+      {{ cancelText }}
+    </ion-item>
+  </ng-template>
+</ion-list>

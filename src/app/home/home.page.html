@@ -13,8 +13,49 @@
     </ion-toolbar>
   </ion-header>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+  <ion-list>
+    <ion-list-header>
+      <ion-label>
+        Multiple Selection
+      </ion-label>
+    </ion-list-header>
+    <ion-item lines="full">
+      <ion-icon slot="start" name="moon"></ion-icon>
+      <ion-label>
+        Toggle Dark Theme
+      </ion-label>
+      <ion-toggle (ionChange)="changeTheme()" slot="end"></ion-toggle>
+    </ion-item>
+    <ion-item>
+      <ion-label>Toppings</ion-label>
+      <ion-select interface="popover" cancelText="Nah" okText="Okay!" (ionChange)="ionSelectable($event)">
+        <ion-select-option value="bacon">Bacon</ion-select-option>
+        <ion-select-option value="olives">Black Olives</ion-select-option>
+        <ion-select-option value="xcheese">Extra Cheese</ion-select-option>
+        <ion-select-option value="peppers">Green Peppers</ion-select-option>
+        <ion-select-option value="mushrooms">Mushrooms</ion-select-option>
+        <ion-select-option value="onions">Onions</ion-select-option>
+        <ion-select-option value="pepperoni">Pepperoni</ion-select-option>
+        <ion-select-option value="pineapple">Pineapple</ion-select-option>
+        <ion-select-option value="sausage">Sausage</ion-select-option>
+        <ion-select-option value="Spinach">Spinach</ion-select-option>
+      </ion-select>
+    </ion-item>
+  
+    <ion-item>
+      <ion-label>Toppings</ion-label>
+      <ion-selectable multiple interface="popover" cancelText="Nah" okText="Okay!" (ionChange)="ionSelectable($event)">
+        <ion-selectable-option value="bacon">Bacon</ion-selectable-option>
+        <ion-selectable-option value="olives">Black Olives</ion-selectable-option>
+        <ion-selectable-option value="xcheese">Extra Cheese</ion-selectable-option>
+        <ion-selectable-option value="peppers">Green Peppers</ion-selectable-option>
+        <ion-selectable-option value="mushrooms">Mushrooms</ion-selectable-option>
+        <ion-selectable-option value="onions">Onions</ion-selectable-option>
+        <ion-selectable-option value="pepperoni">Pepperoni</ion-selectable-option>
+        <ion-selectable-option value="pineapple">Pineapple</ion-selectable-option>
+        <ion-selectable-option value="sausage">Sausage</ion-selectable-option>
+        <ion-selectable-option value="Spinach">Spinach</ion-selectable-option>
+      </ion-selectable>
+    </ion-item>
+  </ion-list>
 </ion-content>

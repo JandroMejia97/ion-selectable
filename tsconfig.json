@@ -14,7 +14,10 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "@ion-selectable/*": ["src/ion-selectable/*"]
+    }
   },
   "angularCompilerOptions": {
     "fullTemplateTypeCheck": true,
